@@ -29,6 +29,9 @@ TextureImporter:
   - first:
       213: -5732831613066410305
     second: UI_Mascote
+  - first:
+      213: 1730207275420213454
+    second: UI_Balao
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -298,6 +301,27 @@ TextureImporter:
       bones: []
       spriteID: fb60c029504e070b0800000000000000
       internalID: -5732831613066410305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Balao
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 46
+        width: 186
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0e737995ee20810800000000000000
+      internalID: 1730207275420213454
       vertices: []
       indices: 
       edges: []

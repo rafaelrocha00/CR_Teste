@@ -19,6 +19,7 @@ namespace SistemaDeEngrenagens
         Vector3 ultimaPosicao;
         public Action IMovendo;
         Quaternion rotacaoOriginal;
+        bool manterTamanhoAoVoltar = false;
 
         private void Start()
         {
@@ -37,7 +38,10 @@ namespace SistemaDeEngrenagens
         public void SetarAparencia(Sprite novoSprite)
         {
             imagemAssociada.sprite = novoSprite;
-            imagemAssociada.SetNativeSize();
+            if (!manterTamanhoAoVoltar)
+            {
+                imagemAssociada.SetNativeSize();
+            }
         }
 
         public void SetarAparenciaOriginal()
@@ -102,6 +106,7 @@ namespace SistemaDeEngrenagens
             }
 
             SetarNovaPosicao();
+            C_Engrenagem.instancia.ChecarVitoria();
         }
 
         public void IniciarGiro(int direcao)
@@ -127,6 +132,11 @@ namespace SistemaDeEngrenagens
                 transform.Rotate(Vector3.forward * velocidadeAngular * Time.deltaTime * direcao);
                 yield return null;
             }  
+        }
+
+        public void ManterTamanho(bool manter)
+        {
+            manterTamanhoAoVoltar = manter;
         }
     }
 }

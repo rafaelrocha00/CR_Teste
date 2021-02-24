@@ -8,6 +8,7 @@ namespace SistemaDeEngrenagens
         [SerializeField] Engrenagem engrenagemAtual;
         [SerializeField] Transform formatoFisico;
         [SerializeField] Sprite aparenciaEngrenagem;
+        [SerializeField] bool manterTamanho;
         RectTransform container;
 
         private void Start()
@@ -16,6 +17,7 @@ namespace SistemaDeEngrenagens
             if (engrenagemAtual != null)
             {
                 engrenagemAtual.IMovendo += TirarEngrenagem;
+                engrenagemAtual.ManterTamanho(manterTamanho);
             }
         }
 
@@ -26,6 +28,7 @@ namespace SistemaDeEngrenagens
 
         public void ColocarEngrenagem(Engrenagem novaEngrenagem)
         {
+            novaEngrenagem.ManterTamanho(manterTamanho);
             engrenagemAtual = novaEngrenagem;
             engrenagemAtual.SetarNovoPai(transform, formatoFisico.position);
             if(aparenciaEngrenagem != null)
@@ -33,9 +36,6 @@ namespace SistemaDeEngrenagens
                 engrenagemAtual.SetarAparencia(aparenciaEngrenagem);
             }
             engrenagemAtual.IMovendo += TirarEngrenagem;
-            C_Engrenagem.instancia.ChecarVitoria();
-      
-
         }
 
         public void TirarEngrenagem()
@@ -57,6 +57,7 @@ namespace SistemaDeEngrenagens
 
         public void PararEngrenagem()
         {
+            if(engrenagemAtual != null)
             engrenagemAtual.PararGiro();
         }
 
